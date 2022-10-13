@@ -62,3 +62,31 @@ kubectl describe namespace <namespace_name>	To display the detailed state of one
 kubectl delete namespace <namespace_name>	To delete a namespace.
 kubectl edit namespace <namespace_name>	To edit and update the definition of a namespace.
 
+4. Services
+
+Shortcode = services
+
+In Kubernetes, a Service is an abstraction which defines a logical set of Pods and a policy by which to access them (sometimes this pattern is called a micro-service).
+
+Commands	Description
+kubectl get services	To list one or more services.
+kubectl describe services <services_name>	To list the detailed display of services.
+kubectl delete services -o wide	To delete all the services.
+kubectl delete service < service_name>	To delete a particular service.
+5. Deployments
+
+A Deployment provides declarative updates for Pods and ReplicaSets.The typical use case of deployments are to create a deployment to rollout a ReplicaSet, declare the new state of the pods and rolling back to an earlier deployment revision.
+
+Commands	Description
+kubectl create deployment <deployment_name>	To create a new deployment.
+kubectl get deployment	To list one or more deployments.
+kubectl describe deployment <deployment_name>	To list a detailed state of one or more deployments.
+kubectl delete deployment<deployment_name>	To delete a deployment.
+6. DaemonSets
+
+A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+
+Command	Description
+kubectl get ds	To list out all the daemon sets.
+kubectl get ds -all-namespaces	To list out the daemon sets in a namespace.
+kubectl describe ds [daemonset_name][namespace_name]	To list out the detailed information for a daemon set inside a namespace.
