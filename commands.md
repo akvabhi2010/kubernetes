@@ -90,3 +90,39 @@ Command	Description
 kubectl get ds	To list out all the daemon sets.
 kubectl get ds -all-namespaces	To list out the daemon sets in a namespace.
 kubectl describe ds [daemonset_name][namespace_name]	To list out the detailed information for a daemon set inside a namespace.
+
+7. Events
+
+Kubernetes events allow us to paint a performative picture of the clusters.
+
+Commands	Description
+kubectl get events	To list down the recent events for all the resources in the system.
+kubectl get events --field-selector involvedObject.kind != Pod	To list down all the events except the pod events.
+kubectl get events --field-selector type != Normal	To filter out normal events from a list of events.
+8. Logs
+
+Logs are useful when debugging problems and monitoring cluster activity. They help to understand what is happening inside the application.
+
+Commands	Description
+kubectl logs <pod_name>	To display the logs for a Pod with the given name.
+kubectl logs --since=1h <pod_name>	To display the logs of last 1 hour for the pod with the given name.
+kubectl logs --tail-20 <pod_name>	To display the most recent 20 lines of logs.
+kubectl logs -c <container_name> <pod_name>	To display the logs for a container in a pod with the given names.
+kubectl logs <pod_name> pod.log	To save the logs into a file named as pod.log.
+9. ReplicaSets
+
+A ReplicaSet's purpose is to maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods.
+
+Commands	Description
+kubectl get replicasets	To List down the ReplicaSets.
+kubectl describe replicasets <replicaset_name>	To list down the detailed state of one or more ReplicaSets.
+kubectl scale --replace=[x]	To scale a replica set.
+10. Service Accounts
+
+A service account provides an identity for processes that run in a Pod.
+
+Commands	Description
+kubectl get serviceaccounts	To List Service Accounts.
+kubectl describe serviceaccounts	To list the detailed state of one or more service accounts.
+kubectl replace serviceaccounts	To replace a service account.
+kubectl delete serviceaccounts <name>	To delete a service account.
